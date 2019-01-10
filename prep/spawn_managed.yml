@@ -1,0 +1,6 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+        - create X nodes
+        - import into tower inventory
+        - add credentials to manage nodes

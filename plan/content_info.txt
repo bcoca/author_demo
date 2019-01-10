@@ -1,0 +1,9 @@
+pros:
+  - Can allow support for all plugin types
+  - Can allow loading plugins w/o having to import a role
+  - Can have clear plugin behaviour/precedence
+  - Can handle multiple roles
+cons:
+  - new development
+  - conflicting designs
+  - needs tooling/guides/etc

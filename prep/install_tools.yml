@@ -1,0 +1,31 @@
+- hosts: localhost
+  gather_facts: false
+  vars:
+    venv: contentdemo
+  tasks:
+        - name: ensure virtualenv is present (wont actually install unless root)
+          yum: name=python-virtualenv state=present
+
+        - name: remove once pip module works
+          block:
+            - name: create virtualenv
+              shell: virtualenv {{venv}} --system-site-packages creates={{venv}}
+
+            - name: upgrade from ancient pip version
+              shell: "{{venv}}/bin/pip2 install pip --upgrade"
+
+            - name: install mazer 
+              shell: "{{venv}}/bin/pip2 install mazer"
+
+            - name: install molecule, but requires gcc
+              #shell: "{{venv}}/bin/pip2 install molecule"
+              shell: "{{venv}}/bin/pip2 install git+git://github.com/ansible/molecule@master"
+              when: lookup('pipe', 'which gcc')
+              tags: ['devel']
+
+        #TODO: figure out why this doesnt work, 
+        #- pip: name={{item}} virtualenv={{venv}} virtualenv_site_packages=yes virtualenv_command=virtualenv state=present
+        #  loop:
+        #    - pip
+        #    - mazer
+        #    - molecule

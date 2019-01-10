@@ -1,0 +1,10 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - spawn instances
+    - add to tower group
+- hosts: tower
+  tasks:
+    - install tower
+    - install towercli
+    - add license

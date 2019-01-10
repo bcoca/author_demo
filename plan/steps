@@ -1,0 +1,22 @@
+- create content
+	- skeleton
+    - test
+	- depenencies
+- package content
+	- versions
+	- dependencies
+- distribute content
+	- galaxy
+	- private repo
+- consume content
+	actions:
+		- install
+		- run
+		- remove
+		- update
+	variations:
+		- galaxy
+		- private repo
+		- awx/tower
+		- versions
+		- dependencies

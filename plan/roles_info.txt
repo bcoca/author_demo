@@ -1,0 +1,10 @@
+pros:
+  - existing
+  - can encapsulate most plugins (post fork ones)
+cons:
+  - dir/main.yml
+  - need to be referenced, for contents to be used
+  - lack of versioning
+  - limited encapsulation (bleed vars/plugins/task output|returns, toggle for vars exists)
+  - undocumented plugin behaviours
+  - single item package (unofficial workaround exists)
