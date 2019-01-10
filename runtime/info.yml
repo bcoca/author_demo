@@ -1,0 +1,8 @@
+- hosts: localhost
+  gather_facts: false
+  vars:
+    configs: '{{settings|default(["ANSIBLE_COW_SELECTION", "DEFAULT_MODULE_PATH"])}}'
+  tasks:
+    - name: get config
+      debug: msg="{{lookup('config', item)}}"
+      loop: '{{configs}}'
