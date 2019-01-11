@@ -1,10 +1,30 @@
-- hosts: localhost
+- name: init cloud instances
+  hosts: localhost
   gather_facts: false
   tasks:
-    - spawn instances
-    - add to tower group
+    - name: currently automated by 'asking Gabe' ... but should fix this playbook to
+      debug: msg=still need tasks to {{item}}
+        - spawn tower cloud instance from ami
+        - spawn managed nodes
+
 - hosts: tower
   tasks:
-    - install tower
-    - install towercli
-    - add license
+    - name: pending automation
+      debug: msg=still need tasks to {{item}}
+      loop:
+        - install tower
+        - install towercli
+        - add license
+        - setup admin
+        - setup orgs
+        - setup teams
+        - setup users
+        - setup inventory
+        - setup credentials to manage nodes
+        - setup projects
+        - setup templates
+
+    - name: manually update settings->jobs to allow custom plugin loading
+      block:
+        - debug: msg="settings->jobs->paths to expose: /path/to/content/dirs"
+        - debug: msg="settings->jobs->extra env vars: set per plugin paths to ADD content dirs, remember to add existing awx/ansible"

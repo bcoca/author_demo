@@ -3,8 +3,12 @@
   vars:
     venv: contentdemo
   tasks:
-        - name: ensure virtualenv is present (wont actually install unless root)
-          yum: name=python-virtualenv state=present
+        - name: ensure minmal tools are present (wont actually install unless run as root)
+          yum: name={{item}} state=present
+          tags: ['system']
+          loop:
+            - git # could actually be other supported scms?
+            - python-virtualenv
 
         - name: remove once pip module works
           block:
@@ -23,7 +27,7 @@
               when: lookup('pipe', 'which gcc')
               tags: ['devel']
 
-        #TODO: figure out why this doesnt work, 
+        #TODO: figure out why this doesnt work
         #- pip: name={{item}} virtualenv={{venv}} virtualenv_site_packages=yes virtualenv_command=virtualenv state=present
         #  loop:
         #    - pip

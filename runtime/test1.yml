@@ -1,4 +1,7 @@
 - hosts: all
   gather_facts: false
   tasks:
-    - bcsping:
+    - name: get config
+      debug: msg="{{lookup('config', 'DEFAULT_MODULE_PATH')}}"
+
+    - action: module=bcsping
