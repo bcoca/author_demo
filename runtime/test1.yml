@@ -1,7 +1,14 @@
 - hosts: all
   gather_facts: false
+  vars:
+    module_path: "{{lookup('config', 'DEFAULT_MODULE_PATH')}}"
   tasks:
     - name: get config
-      debug: msg="{{lookup('config', 'DEFAULT_MODULE_PATH')}}"
+      debug: var=module-path
 
-    - action: module=bcsping
+    - name: test paths
+      stat: path={{item}}
+      loop: "{{ module_path.split(':') }}"
+
+    - name: actual test
+      action: module=bcsping
