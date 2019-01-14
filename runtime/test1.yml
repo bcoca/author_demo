@@ -4,11 +4,11 @@
     module_path: "{{lookup('config', 'DEFAULT_MODULE_PATH')}}"
   tasks:
     - name: get config
-      debug: var=module-path
+      debug: var=module_path
 
     - name: test paths
       stat: path={{item}}
-      loop: "{{ module_path.split(':') }}"
+      loop: "{{ module_path }}"
 
     - name: actual test
       action: module=bcsping
