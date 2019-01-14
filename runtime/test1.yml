@@ -5,7 +5,7 @@
   tasks:
     - name: debug info for test
       run_once: true
-      tags: ['debug']
+      tags: ['never', 'debug']
       block:
         - name: get config
           debug: var=module_path
