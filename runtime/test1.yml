@@ -22,4 +22,7 @@
         - debug: var=found
 
     - name: actual test
-      action: bcsping
+      bcsping: data=bcspong
+
+    - name: with namespace
+      bcs.bcsping: data=pongbcs
