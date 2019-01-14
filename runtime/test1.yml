@@ -16,7 +16,10 @@
 
         - name: find contents
           find: paths={{item}} recurse=yes patterns='*'
+          register: found
           loop: "{{ module_path }}"
+
+        - debug: var=found
 
     - name: actual test
       action: module=bcsping
