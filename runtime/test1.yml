@@ -3,12 +3,20 @@
   vars:
     module_path: "{{lookup('config', 'DEFAULT_MODULE_PATH')}}"
   tasks:
-    - name: get config
-      debug: var=module_path
+    - name: debug info for test
+      run_once: true
+      tags: ['debug']
+      block:
+        - name: get config
+          debug: var=module_path
 
-    - name: test paths
-      stat: path={{item}}
-      loop: "{{ module_path }}"
+        - name: test paths
+          stat: path={{item}}
+          loop: "{{ module_path }}"
+
+        - name: find contents
+          find: paths={{item}} recurse=yes patterns='*'
+          loop: "{{ module_path }}"
 
     - name: actual test
       action: module=bcsping
