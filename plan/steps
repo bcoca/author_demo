@@ -9,6 +9,17 @@
 	- galaxy
 	- private repo
 - consume content
+    scenarios:
+        ansible-cli:
+            - project
+            - user
+            - global
+        tower:
+            - global
+            - project
+            - org
+            - team
+            - user
 	actions:
 		- install
 		- run
