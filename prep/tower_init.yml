@@ -6,6 +6,7 @@
       debug: msg=still need tasks to {{item}}
         - spawn tower cloud instance from ami
         - spawn managed nodes
+        - add new tower node to 'tower' group
 
 - hosts: tower
   tasks:

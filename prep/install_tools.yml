@@ -18,7 +18,7 @@
             - name: upgrade from ancient pip version
               shell: "{{venv}}/bin/pip2 install pip --upgrade"
 
-            - name: install mazer 
+            - name: install mazer
               shell: "{{venv}}/bin/pip2 install mazer"
 
             - name: install molecule, but requires gcc
