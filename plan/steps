@@ -1,13 +1,15 @@
 - create content
-	- skeleton
-    - test
-	- depenencies
-- package content
+	- skeleton # TODO: have molecule generate
+    - test # molecule run
+	- depenencies/requirements # molecule 'check'?
+- package content # TODO: molecule build (currently mazer and a few scripts do)
 	- versions
-	- dependencies
+	- dependencies/requirements
+	- tests # noship, galaxy server testing/results appraisal?
 - distribute content
-	- galaxy
+	- galaxy # molecule publish
 	- private repo
+
 - consume content
     scenarios:
         ansible-cli:
