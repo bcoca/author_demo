@@ -1,5 +1,7 @@
 - create content
-	- skeleton # TODO: have molecule generate
+	- skeleton:
+		- have molecule generate https://github.com/ansible/molecule/pull/1671
+		- no vars/template/files for plays, currently those are restricted to roles
     - test # molecule run
 	- depenencies/requirements # molecule 'check'?
 - package content # TODO: molecule build (currently mazer and a few scripts do)
