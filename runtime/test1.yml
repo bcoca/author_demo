@@ -21,8 +21,12 @@
 
         - debug: var=found
 
-    - name: actual test
-      bcsping: data=bcspong
+    - name: test no namespace (uses built in)
+      ping: data=bcspong
+
+    - name: test colleciton namespace
+      bcsping.ping: data=bcspong
+      ignore_errors: yes
 
     - name: with namespace
-      bcs.bcsping: data=pongbcs
+      bcs.bcsping.ping: data=pongbcs
