@@ -21,12 +21,11 @@
 
         - debug: var=found
 
-    - name: test no namespace (uses built in)
+    - name: test no namespace, changed feature so now this will use built in
       ping: data=bcspong
 
-    - name: test colleciton namespace
-      bcsping.ping: data=bcspong
-      ignore_errors: yes
+#    - name: test colleciton namespace, removed this 'feature'
+#      bcsping.ping: data=bcspong
 
-    - name: with namespace
+    - name: with full namespace
       bcs.bcsping.ping: data=pongbcs
